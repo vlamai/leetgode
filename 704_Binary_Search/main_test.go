@@ -36,6 +36,13 @@ func Test_search(t *testing.T) {
 				target: -1,
 			},
 			want: 0,
+		}, {
+			name: "Test 3",
+			args: args{
+				nums:   []int{5},
+				target: 5,
+			},
+			want: 0,
 		},
 	}
 	for _, tt := range tests {
