@@ -17,12 +17,19 @@ package _03_Range_Sum_Query___Immutable
  */
 
 type NumArray struct {
+	cSum []int
 }
 
 func Constructor(nums []int) NumArray {
-	return NumArray{}
+	cSum := []int{0}
+	for i, n := range nums {
+		cSum = append(cSum, cSum[i]+n)
+	}
+	return NumArray{
+		cSum: cSum,
+	}
 }
 
 func (this *NumArray) SumRange(left int, right int) int {
-	return -1
+	return this.cSum[right+1] - this.cSum[left]
 }
