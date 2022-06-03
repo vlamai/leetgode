@@ -5,5 +5,10 @@ package _68_Missing_Number
 // return the only number in the range that is missing from the array.
 //
 func missingNumber(nums []int) int {
-	return 0
+	n := len(nums)
+	sum := n * (n + 1) / 2
+	for _, num := range nums {
+		sum -= num
+	}
+	return sum
 }
