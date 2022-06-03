@@ -10,9 +10,9 @@ func TestLinkedListFromSlice(t *testing.T) {
 	l := FromSlice(ints)
 	var i int
 	for l != nil {
-		assert.Equal(t, ints[i], l.val)
+		assert.Equal(t, ints[i], l.Val)
 		i++
-		l = l.next
+		l = l.Next
 	}
 	assert.Equal(t, len(ints), i)
 }
@@ -21,16 +21,16 @@ func TestListNode_FromSliceWithCicle(t *testing.T) {
 	ints := []int{1, 2, 3, 4, 5}
 	l := FromSliceWithCicle(ints, 2)
 	for i := 0; i < len(ints); i++ {
-		l = l.next
+		l = l.Next
 	}
-	assert.Equal(t, l.val, ints[2])
+	assert.Equal(t, l.Val, ints[2])
 }
 
 func TestListNode_FromSliceWithCicle2(t *testing.T) {
 	ints := []int{1, 2, 3, 4, 5}
 	l := FromSliceWithCicle(ints, 1)
 	for i := 0; i < len(ints); i++ {
-		l = l.next
+		l = l.Next
 	}
-	assert.Equal(t, l.val, ints[1])
+	assert.Equal(t, l.Val, ints[1])
 }
