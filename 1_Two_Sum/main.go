@@ -7,5 +7,13 @@ package __Two_Sum
 // You can return the answer in any order.
 
 func twoSum(nums []int, target int) []int {
-	return nil
+	set := make(map[int]int)
+	for i, num := range nums {
+		if v, ok := set[num]; ok {
+			return []int{v, i}
+		} else {
+			set[target-num] = i
+		}
+	}
+	return []int{}
 }
