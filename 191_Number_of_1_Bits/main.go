@@ -14,5 +14,10 @@ package _91_Number_of_1_Bits
 //    Therefore, in Example 3, the input represents the signed integer. -3.
 
 func hammingWeight(num uint32) int {
-	return 0
+	var res = 0
+	for num > 0 {
+		res += int(num % 2)
+		num = num >> 1
+	}
+	return res
 }
