@@ -11,5 +11,6 @@ package _1_Container_With_Most_Water
 //
 // Notice that you may not slant the container.
 func maxArea(height []int) int {
+
 	return 0
 }
