@@ -9,5 +9,24 @@ package _22_Coin_Change
 // You may assume that you have an infinite number of each kind of coin.
 
 func coinChange(coins []int, amount int) int {
-	return 0
+	dp := make([]int, amount+1)
+	for i := range dp {
+		dp[i] = amount + 1
+	}
+	dp[0] = 0
+	for a := 1; a <= amount; a++ {
+		for _, coin := range coins {
+			if a-coin >= 0 {
+				o := 1 + dp[a-coin]
+				if dp[a] > o {
+					dp[a] = o
+				}
+			}
+		}
+	}
+	res := dp[amount]
+	if res == amount+1 {
+		return -1
+	}
+	return res
 }
