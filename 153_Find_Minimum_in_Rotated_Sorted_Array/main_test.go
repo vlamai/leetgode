@@ -33,7 +33,7 @@ func Test_findMin(t *testing.T) {
 			args: args{
 				nums: []int{11, 13, 15, 17},
 			},
-			want: 13,
+			want: 11,
 		},
 	}
 	for _, tt := range tests {
