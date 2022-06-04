@@ -8,5 +8,13 @@ package _52_Maximum_Product_Subarray
 // A subarray is a contiguous subsequence of the array.
 
 func maxProduct(nums []int) int {
-	return nums[0]
+	maxProd := nums[0]
+	curProd := nums[0]
+	for _, num := range nums[1:] {
+		curProd *= num
+		if maxProd < curProd {
+			maxProd = curProd
+		}
+	}
+	return maxProd
 }
