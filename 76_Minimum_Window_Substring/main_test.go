@@ -39,6 +39,14 @@ func Test_minWindow(t *testing.T) {
 			},
 			want: "",
 		},
+		{
+			name: "Test 4",
+			args: args{
+				s: "cabwefgewcwaefgcf",
+				t: "cae",
+			},
+			want: "cwae",
+		},
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
