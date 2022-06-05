@@ -26,12 +26,10 @@ func combinationSum(candidates []int, target int) [][]int {
 				if n >= lastIndex {
 					continue
 				}
-				var t [][]int
 				for _, ints := range current {
 					ints = append(ints, candidate)
-					t = append(t, ints)
+					result[n] = append(result[n], ints)
 				}
-				result[n] = append(result[n], t...)
 			}
 		}
 	}
