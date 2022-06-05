@@ -1,5 +1,7 @@
 package _6_Minimum_Window_Substring
 
+import "fmt"
+
 // Given two strings s and t of lengths m and n respectively,
 // return the minimum window substring of s such that every character in t (including duplicates)
 // is included in the window. If there is no such substring, return the empty string "".
@@ -21,7 +23,7 @@ func minWindow(s string, t string) string {
 			numOfChars[char] = 1
 		}
 	}
-
+	fmt.Println(numOfChars)
 	for _, i := range s {
 		char := uint8(i)
 		if _, ok := numOfChars[char]; ok {
@@ -36,6 +38,8 @@ func minWindow(s string, t string) string {
 	if len(s) == len(t) {
 		return s
 	}
+
+	fmt.Println(numOfChars)
 	l := 0
 
 	for {
@@ -52,6 +56,7 @@ func minWindow(s string, t string) string {
 		}
 
 	}
+	fmt.Println(numOfChars)
 	r := len(s) - 1
 	for {
 		char := s[r]
@@ -66,5 +71,6 @@ func minWindow(s string, t string) string {
 			r--
 		}
 	}
+	fmt.Println(numOfChars)
 	return s[l : r+1]
 }
