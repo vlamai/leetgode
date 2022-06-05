@@ -5,6 +5,18 @@ import (
 	"testing"
 )
 
+func Test_twoSum_clos(t *testing.T) {
+	ts := func(nums []int, target int, want []int) func(t *testing.T) {
+		return func(t *testing.T) {
+			assert.Equal(t, want, twoSum(nums, target))
+		}
+	}
+	t.Run("Test 1", ts([]int{2, 7, 11, 15}, 9, []int{0, 1}))
+	t.Run("Test 2", ts([]int{2, 7, 11, 15}, 26, []int{2, 3}))
+	t.Run("Test 3", ts([]int{2, 7, 11, 15}, -1, []int{}))
+
+}
+
 func Test_twoSum(t *testing.T) {
 	type args struct {
 		nums   []int
