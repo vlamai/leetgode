@@ -1,6 +1,9 @@
 package _6_Minimum_Window_Substring
 
-import "testing"
+import (
+	"github.com/stretchr/testify/assert"
+	"testing"
+)
 
 func Test_minWindow(t *testing.T) {
 	type args struct {
@@ -39,9 +42,7 @@ func Test_minWindow(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			if got := minWindow(tt.args.s, tt.args.t); got != tt.want {
-				t.Errorf("minWindow() = %v, want %v", got, tt.want)
-			}
+			assert.Equal(t, tt.want, minWindow(tt.args.s, tt.args.t))
 		})
 	}
 }
