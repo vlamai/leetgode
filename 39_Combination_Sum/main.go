@@ -1,5 +1,9 @@
 package _9_Combination_Sum
 
+import (
+	"fmt"
+)
+
 // Given an array of distinct integers candidates and a target integer target,
 // return a list of all unique combinations of candidates where the chosen numbers sum to target.
 // You may return the combinations in any order.
@@ -9,6 +13,33 @@ package _9_Combination_Sum
 //
 // It is guaranteed that the number of unique combinations that sum up
 // to target is less than 150 combinations for the given input.
+
 func combinationSum(candidates []int, target int) [][]int {
-	return nil
+	lastIndex := target + 1
+	var result = make([][][]int, lastIndex)
+	result[0] = [][]int{{}}
+	for i := 0; i < lastIndex; i++ {
+		current := result[i]
+		if len(current) > 0 {
+			for _, candidate := range candidates {
+				n := i + candidate
+				if n >= lastIndex {
+					continue
+				}
+				var t [][]int
+				for _, ints := range current {
+					ints = append(ints, candidate)
+					t = append(t, ints)
+				}
+				result[n] = append(result[n], t...)
+			}
+		}
+	}
+	for i, i2 := range result {
+		fmt.Printf("pos:%d c:%v\n", i, i2)
+	}
+	if result[target] == nil {
+		return [][]int{{}}
+	}
+	return result[target]
 }
