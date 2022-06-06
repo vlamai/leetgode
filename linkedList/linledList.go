@@ -1,8 +1,35 @@
 package linkedList
 
+import "fmt"
+
 type ListNode struct {
 	Val  int
 	Next *ListNode
+}
+
+// ToSlice Convert linked list to a slice
+func ToSlice(head *ListNode) []int {
+	var nums []int
+	for head != nil {
+		nums = append(nums, head.Val)
+		head = head.Next
+	}
+	return nums
+}
+
+// Print print linked list
+func (h *ListNode) String() string {
+	if h == nil {
+		return "nil"
+	}
+	var s = ""
+	head := h
+	for head != nil {
+		s += fmt.Sprintf("%d -> ", head.Val)
+		head = head.Next
+	}
+	s += "nil"
+	return s
 }
 
 func FromSliceWithCicle(nums []int, pos int) *ListNode {
