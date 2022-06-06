@@ -38,7 +38,7 @@ func TestListNode_FromSliceWithCicle2(t *testing.T) {
 func TestToSlice(t *testing.T) {
 	ints := []int{1, 2, 3, 4, 5}
 	l := FromSlice(ints)
-	assert.Equal(t, ints, ToSlice(l))
+	assert.Equal(t, ints, l.ToSlice())
 }
 
 func TestListNode_String(t *testing.T) {

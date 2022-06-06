@@ -8,8 +8,9 @@ type ListNode struct {
 }
 
 // ToSlice Convert linked list to a slice
-func ToSlice(head *ListNode) []int {
+func (h *ListNode) ToSlice() []int {
 	var nums []int
+	head := h
 	for head != nil {
 		nums = append(nums, head.Val)
 		head = head.Next
