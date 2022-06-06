@@ -29,7 +29,7 @@ func Test_backspaceCompare(t *testing.T) {
 				s: "ab##",
 				t: "c#d#",
 			},
-			want: false,
+			want: true,
 		},
 		{
 			name: "Test 3",
