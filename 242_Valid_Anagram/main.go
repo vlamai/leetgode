@@ -8,7 +8,7 @@ func isAnagramMap(s string, t string) bool {
 	if len(s) != len(t) {
 		return false
 	}
-	var set = make(map[int32]int)
+	var set = make(map[int32]int, 26)
 	for _, c := range s {
 		if _, ok := set[c]; ok {
 			set[c]++
@@ -23,6 +23,24 @@ func isAnagramMap(s string, t string) bool {
 				return false
 			}
 		} else {
+			return false
+		}
+	}
+	return true
+}
+
+func isAnagramArray(s string, t string) bool {
+	if len(s) != len(t) {
+		return false
+	}
+	result := make([]int, 26)
+	s0 := int('a')
+	for i := 0; i < len(s); i++ {
+		result[int(s[i])-s0]++
+		result[int(t[i])-s0]--
+	}
+	for _, n := range result {
+		if n != 0 {
 			return false
 		}
 	}
