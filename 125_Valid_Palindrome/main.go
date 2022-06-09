@@ -3,15 +3,15 @@ package _25_Valid_Palindrome
 func isPalindrome(s string) bool {
 	l := 0
 	r := len(s) - 1
-	var noLet int
 	for l < r {
 		for IsLetter(rune(s[l])) == false && l < r {
 			l++
-			noLet++
 		}
 		for IsLetter(rune(s[r])) == false && l <= r {
 			r--
-			noLet++
+		}
+		if l > r {
+			break
 		}
 		lSym := low(s[l])
 		rSym := low(s[r])
@@ -21,14 +21,11 @@ func isPalindrome(s string) bool {
 		l++
 		r--
 	}
-	if noLet == len(s) {
-		return false
-	}
 	return true
 }
 
 func IsLetter(r int32) bool {
-	if (r < 'a' || r > 'z') && (r < 'A' || r > 'Z') {
+	if (r < 'a' || r > 'z') && (r < 'A' || r > 'Z') && (r < '0' || r > '9') {
 		return false
 	}
 	return true
