@@ -1,28 +1,35 @@
 package _42_Valid_Anagram
 
 func isAnagram(s string, t string) bool {
-	return isAnagramMap(s, t)
+	return isAnagramWithoutMemoryAlloc(s, t)
+}
+
+func isAnagramWithoutMemoryAlloc(s string, t string) bool {
+	if len(s) != len(t) {
+		return false
+	}
+	for _, sc := range s {
+		for i, c := range t {
+			if sc == c {
+				t = t[:i] + t[i+1:]
+				break
+			}
+		}
+	}
+	return t == ""
 }
 
 func isAnagramMap(s string, t string) bool {
 	if len(s) != len(t) {
 		return false
 	}
-	var set = make(map[int32]int, 26)
-	for _, c := range s {
-		if _, ok := set[c]; ok {
-			set[c]++
-		} else {
-			set[c] = 1
-		}
+	var set = make(map[uint8]int, 26)
+	for i := range s {
+		set[s[i]]++
+		set[t[i]]--
 	}
-	for _, c := range t {
-		if _, ok := set[c]; ok {
-			set[c]--
-			if set[c] < 0 {
-				return false
-			}
-		} else {
+	for _, i := range set {
+		if i < 0 {
 			return false
 		}
 	}

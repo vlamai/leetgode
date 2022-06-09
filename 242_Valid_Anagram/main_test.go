@@ -73,6 +73,26 @@ func Benchmark_isAnagramArray100(b *testing.B)   { benchmark_isAnagramArray(100,
 func Benchmark_isAnagramArray1000(b *testing.B)  { benchmark_isAnagramArray(1000, b) }
 func Benchmark_isAnagramArray10000(b *testing.B) { benchmark_isAnagramArray(10000, b) }
 
+func benchmark_isAnagramWithoutMemoryAlloc(l int, b *testing.B) {
+	s, t := GetStrings(l)
+	for i := 0; i < b.N; i++ {
+		isAnagramWithoutMemoryAlloc(s, t)
+	}
+}
+
+func Benchmark_isAnagramWithoutMemoryAlloc10(b *testing.B) {
+	benchmark_isAnagramWithoutMemoryAlloc(10, b)
+}
+func Benchmark_isAnagramWithoutMemoryAlloc100(b *testing.B) {
+	benchmark_isAnagramWithoutMemoryAlloc(100, b)
+}
+func Benchmark_isAnagramWithoutMemoryAlloc1000(b *testing.B) {
+	benchmark_isAnagramWithoutMemoryAlloc(1000, b)
+}
+func Benchmark_isAnagramWithoutMemoryAlloc10000(b *testing.B) {
+	benchmark_isAnagramWithoutMemoryAlloc(10000, b)
+}
+
 func GetStrings(l int) (string, string) {
 	const charset = "abcdefghijklmnopqrstuvwxyz"
 	s := StringWithCharset(l, charset)
