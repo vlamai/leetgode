@@ -1,1 +1,1 @@
-package leetcode_patterns
+package leetgode
