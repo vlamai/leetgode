@@ -31,6 +31,14 @@ func Test_topKFrequent(t *testing.T) {
 			},
 			want: []int{1},
 		},
+		{
+			name: "Test 3",
+			args: args{
+				nums: []int{1, 1, 1, 2, 2, 2, 3},
+				k:    2,
+			},
+			want: []int{1, 2},
+		},
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
