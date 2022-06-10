@@ -29,6 +29,11 @@ func Test_plusOne(t *testing.T) {
 			args: args{digits: []int{9}},
 			want: []int{1, 0},
 		},
+		{
+			name: "Test 4",
+			args: args{digits: []int{9, 9, 9, 9}},
+			want: []int{1, 0, 0, 0, 0},
+		},
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
