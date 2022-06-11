@@ -34,6 +34,9 @@ func (h *ListNode) String() string {
 }
 
 func FromSliceWithCicle(nums []int, pos int) *ListNode {
+	if len(nums) == 0 {
+		return nil
+	}
 	head := &ListNode{
 		Val: nums[0],
 	}
@@ -52,6 +55,9 @@ func FromSliceWithCicle(nums []int, pos int) *ListNode {
 }
 
 func FromSlice(nums []int) *ListNode {
+	if len(nums) == 0 {
+		return nil
+	}
 	head := &ListNode{
 		Val: nums[0],
 	}
