@@ -33,6 +33,14 @@ func Test_isAnagram(t *testing.T) {
 			},
 			want: false,
 		},
+		{
+			name: "Test 3",
+			args: args{
+				s: "aacc",
+				t: "ccac",
+			},
+			want: false,
+		},
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
